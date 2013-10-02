@@ -119,10 +119,16 @@ class tree
 		return RR(x);				//then perform RR on x and return
 	}
 
-	void inorder(node *x)								 //Inorder traversal (ascending order), format of output:-
-	{													 //		(node1) (height1)
-		if(x)											 //		(node2) (height2)
-		{												 //		(node3) (height3) .. etc
+
+//Inorder traversal (ascending order), format of output:-
+//		(node1) (height1)
+//		(node2) (height2)
+//		(node3) (height3) .. etc
+
+	void inorder(node *x)				 
+	{						
+		if(x)					 
+		{					
 			inorder(x->left);
 			cout<<x->ele<<" "<<x->height<<"\n";
 			inorder(x->right);
