@@ -51,8 +51,8 @@ class tree
 		{
 			x->right = insert(x->right,a);
 			
-			//calculate balance factor, formula is difference(left child, right child)
-			//here it's difference(right child, left child) just so that it'll return +2 rather than -2
+			//calculate balance factor, formula is difference(height(left child), height(right child))
+			//here it's difference(height(right child), height(left child)) just so that it'll return +2 rather than -2
 			//no real reason for the difference
 			if(height(x->right) - height(x->left) == 2)
 			{
