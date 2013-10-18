@@ -58,7 +58,7 @@ class tree
 			{
 				//if balance factor of x's right child is 1, then perform RL rotation
 				if(height(x->right->left) - height(x->right->right) == 1)
-					x = LR(x);
+					x = RL(x);
 				else
 					x = RR(x);
 			}
@@ -72,7 +72,7 @@ class tree
 			{
 				//if balance factor of x's left child is -1, then perform LR rotation
 				if(height(x->left->left) - height(x->left->right) == -1)
-					x = RL(x);
+					x = LR(x);
 				else
 					x = LL(x);
 			}
@@ -109,13 +109,13 @@ class tree
 		return y;
 	}
 
-	node *RL(node *x)	//LR rotation
+	node *LR(node *x)	//LR rotation
 	{
 		x->left = RR(x->left);		//perform RR on x's left child
 		return LL(x);				//then perform LL on x and return result
 	}
 
-	node *LR(node *x)	//RL rotation
+	node *RL(node *x)	//RL rotation
 	{
 		x->right = LL(x->right);	//perform LL on x's right child
 		return RR(x);				//then perform RR on x and return
