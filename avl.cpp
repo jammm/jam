@@ -3,7 +3,6 @@
 
 
 #include<iostream>
-#include<stack>
 
 using namespace std;
 
@@ -52,7 +51,9 @@ class tree
 		{
 			x->right = insert(x->right,a);
 			
-			//calculate balance factor, formula is difference(left child, right child)
+			//calculate balance factor, formula is difference(height(left child), height(right child))
+			//here it's difference(height(right child), height(left child)) just so that it'll return +2 rather than -2
+			//no real reason for the change
 			if(height(x->right) - height(x->left) == 2)
 			{
 				//if balance factor of x's right child is 1, then perform RL rotation
@@ -120,10 +121,16 @@ class tree
 		return RR(x);				//then perform RR on x and return
 	}
 
-	void inorder(node *x)								 //Inorder traversal (ascending order), format of output:-
-	{													 //		(node1) (height1)
-		if(x)											 //		(node2) (height2)
-		{												 //		(node3) (height3) .. etc
+
+//Inorder traversal (ascending order), format of output:-
+//		(node1) (height1)
+//		(node2) (height2)
+//		(node3) (height3) .. etc
+
+	void inorder(node *x)				 
+	{						
+		if(x)					 
+		{					
 			inorder(x->left);
 			cout<<x->ele<<" "<<x->height<<"\n";
 			inorder(x->right);
